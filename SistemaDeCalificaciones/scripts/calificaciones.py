@@ -1,6 +1,6 @@
 import os
 
-rango = 3 # Variable que es la cantidad de alumnos
+rango = 5 # Variable que es la cantidad de alumnos
 nombres = [None for _ in range(rango)]
 calificaciones = [[0 for _ in range(5)] for _ in range(rango)]
 
@@ -20,7 +20,14 @@ def registrarCalificaciones(): # Funcion de registrar las calificaciones
     for i in range(rango): # Ciclo para ir por cada alumno
         print(f"\nRegistrando calificaciones para: {nombres[i]}") 
         for j in range(5): # Ciclo para pedir las cinco calificaciones de cada alumno
-            calif = float(input(f"  Calificación {j+1}: "))
-            calificaciones[i][j] = calif
-    
+            calificaciones[i][j]=validarCalificaciones(j)
     input("\nDatos almacenados correctamente. Presione Enter para volver al menú...")
+
+# Funcion para validar si la calificacion esta entre 0 y 10
+def validarCalificaciones(materia):
+    while True: # While que se seguira repitiendo hasta que se retorne un valor
+        calif = float(input(f"  Calificación {materia+1}: ")) 
+        if 0 <= calif <= 10:
+            return calif # Retorna el valor y rompe el ciclo
+        else:
+            print(" \033[33mTiene que ser una calificación de entre 0 a 10\033[0m")
