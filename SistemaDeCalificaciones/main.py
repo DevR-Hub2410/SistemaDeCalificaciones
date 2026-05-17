@@ -4,10 +4,13 @@ import scripts.calificaciones as cal
 import scripts.estatus as est
 import scripts.reportes as rep
 
+import scripts.banner as banner
+
 def menu():
     while True: # ciclo DO-UNTIL
         os.system('cls' if os.name == 'nt' else 'clear')
-        print("\033[32m-----Sistema de Calificaciones-----\033[0m")
+        print(f"\033[32m{banner.splash1}\033[0m")
+        print("\033[31mHecho por ByteStudio\033[0m")
         print("a) Almacenar datos del alumno")
         print("b) Ver estatus del alumno")
         print("c) Extraer reporte")

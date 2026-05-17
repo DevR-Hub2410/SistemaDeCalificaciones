@@ -3,6 +3,8 @@ import os
 rango = 5 # Variable que es la cantidad de alumnos
 nombres = [None for _ in range(rango)]
 calificaciones = [[0 for _ in range(5)] for _ in range(rango)]
+# Materias (Arreglo tridimensional)
+materia = []
 
 def init():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -10,6 +12,7 @@ def init():
     # LLamar a las funciones
     registrarAlumnos()
     registrarCalificaciones()
+    registrarMateria()
 
 def registrarAlumnos(): # Funcion para registrar los alumnos
     for i in range(rango): # Ciclo para guardar los nombres en el arreglo de nombres
@@ -31,3 +34,11 @@ def validarCalificaciones(materia):
             return calif # Retorna el valor y rompe el ciclo
         else:
             print(" \033[33mTiene que ser una calificación de entre 0 a 10\033[0m")
+
+# Registra alumnos en una materia para que no se borren
+def registrarMateria():
+    for i in range(rango):
+        parciales = [] # Va a recoger una cantidad de calificaciones de parciales
+        for j in range(5):
+            parciales.append([calificaciones[i][j]]) # Almacena todas las califs que se registraron
+        materia.append([nombres[i], parciales]) # Se agrega todos los nombres y materias a una materia
