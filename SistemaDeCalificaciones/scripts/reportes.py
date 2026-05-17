@@ -1,7 +1,6 @@
 import os
 import scripts.calificaciones as cal
-import matplotlib.pyplot as plt
-
+import matplotlib.pyplot as plt # Libreria para la gráfica
 
 def init():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -13,6 +12,7 @@ def init():
     # Obtener los datos generales para el reporte final
     promedioGeneral, sumaAprobados, sumaReprobados, maxima, minima, promedios = datosGenerales()
 
+    # Llamar a la funcion finalReport con todos los datos obtenidos para mostrarlos
     finalReport(
         promedioGeneral,
         sumaAprobados,
@@ -41,7 +41,7 @@ def datosGenerales():
     sumaReprobados = 0
 
     print("\033[34m-----Promedio de cada alumno-----\033[0m")
-    # Ciclo para sacar el promedio de cada alumno y sumarlo
+    # Ciclo FOR para sacar el promedio de cada alumno y sumarlo
     for i in range(cal.rango): 
         promedio = sum(cal.calificaciones[i]) / 5
         promedios.append(promedio)
@@ -55,6 +55,7 @@ def datosGenerales():
             sumaReprobados += 1
     print("\n")
 
+    # Sacar el promedio general de todos los alumnos
     promedioGeneral = sumaPromedios / cal.rango
     # Se escogen las calificaciones máxima y mínima de todas las calificaciones guardadas en un solo arreglo
     maxima = max(todasCalificaciones)
@@ -71,6 +72,7 @@ def finalReport(promedioGeneral, sumaAprobados, sumaReprobados, maxima, minima, 
     print(f"Total de reprobados: {sumaReprobados}")
     print(f"Calificación máxima: {maxima}")
     print(f"Calificación mínima: {minima}")
+
     # Utilizando el arreglo de nombres y el de promedios se crea una gráfica de barras
     plt.bar(cal.nombres, promedios)
     plt.title("Promedio por alumno")
@@ -78,4 +80,5 @@ def finalReport(promedioGeneral, sumaAprobados, sumaReprobados, maxima, minima, 
     plt.ylabel("Promedio")
     plt.ylim(0, 10)
     plt.show()
+
     input("\nPresiona Enter para volver al menú...")

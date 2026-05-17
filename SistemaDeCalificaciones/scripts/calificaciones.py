@@ -1,8 +1,8 @@
 import os
 
-rango = 5 # Variable que es la cantidad de alumnos
-nombres = [None for _ in range(rango)]
-calificaciones = [[0 for _ in range(5)] for _ in range(rango)]
+rango = 20 # Variable que es la cantidad de alumnos
+nombres = [None for _ in range(rango)] # Vector
+calificaciones = [[0 for _ in range(5)] for _ in range(rango)] # Matriz
 # Materias (Arreglo tridimensional)
 materia = []
 
@@ -33,7 +33,7 @@ def validarCalificaciones(materia):
         if 0 <= calif <= 10:
             return calif # Retorna el valor y rompe el ciclo
         else:
-            print(" \033[33mTiene que ser una calificación de entre 0 a 10\033[0m")
+            print("  \033[33mTiene que ser una calificación de entre 0 a 10\033[0m")
 
 # Registra alumnos en una materia para que no se borren
 def registrarMateria():
