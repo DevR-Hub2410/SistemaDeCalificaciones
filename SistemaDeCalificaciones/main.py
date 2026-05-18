@@ -9,7 +9,7 @@ import scripts.banner as banner
 def menu():
     while True: # ciclo DO-UNTIL
         os.system('cls' if os.name == 'nt' else 'clear')
-        print(f"\033[32m{banner.splash1}\033[0m")
+        print(f"\033[32m{banner.splash1}\033[0m") # Usa un banner del banner.py para imprimir el titulo
         print("\033[31mHecho por ByteStudio\033[0m")
         print("a) Almacenar datos del alumno")
         print("b) Ver estatus del alumno")
